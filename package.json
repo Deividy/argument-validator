@@ -1,7 +1,7 @@
 {
     "name": "argument-validator",
     "description": "Argument Valitator for JavaScript",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "private": false,
     "keywords": [ "argument-validator", "argument validator", "validator" ],
     "author": "Deividy Metheler <deividyz@gmail.com>",
