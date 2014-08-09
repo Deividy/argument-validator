@@ -15,20 +15,20 @@
                 var name = Array.prototype.slice.call(arguments, -1)[0];
             }
 
-            if (!validator.apply(v, arguments)) {
-                if (v.isJson(value)) {
-                    value = JSON.stringify(value);
-                }
-
-                var msg = "Invalid " + demandMethodName + " value: " + value;
-                if (v.isString(name)) {
-                    msg += "\nArgument Name: " + name;
-                }
-
-                throw new Error(msg);
+            if (validator.apply(v, arguments)) {
+                return true;
             }
 
-            return true;
+            if (v.isJson(value)) {
+                value = JSON.stringify(value);
+            }
+
+            var msg = "Invalid " + demandMethodName + " value: " + value;
+            if (v.isString(name)) {
+                msg += "\nArgument Name: " + name;
+            }
+
+            throw new Error(msg);
         }
     };
 
