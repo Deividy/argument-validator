@@ -206,9 +206,10 @@ describe("Demands", function () {
     it('.json()', function () {
         (function () {
             V.json({ test: 1 });
+            V.json({});
         }).should.not.throw();
 
-        (function () { V.json({}); }).should.throw();
+        (function () { V.json("NULL"); }).should.throw();
     });
 
     it('.jsonString()', function () {

@@ -158,8 +158,9 @@ describe("Validators", function () {
     });
 
     it('.isJson()', function () {
-        V.isJson({}).should.be.false;
+        V.isJson({}).should.be.true;
         V.isJson({ test: 1 }).should.be.true;
+        V.isJson("NULL").should.be.false;
     });
 
     it('.isJsonString()', function () {
