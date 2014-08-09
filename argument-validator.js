@@ -172,7 +172,7 @@
     };
 
     v.isJson = function (value) {
-        if (!v.isObject(value)) {
+        if (!v.isObjectOrEmpty(value)) {
             return false;
         }
 
