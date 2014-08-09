@@ -9,14 +9,13 @@
 
     var demand = function (demandMethodName, validator) {
         return function (value /* ... more args, name */) {
-            var name = null;
-
-            if (arguments.length > 1) {
-                var name = Array.prototype.slice.call(arguments, -1)[0];
-            }
-
             if (validator.apply(v, arguments)) {
                 return true;
+            }
+
+            var name = null;
+            if (arguments.length > 1) {
+                var name = Array.prototype.slice.call(arguments, -1)[0];
             }
 
             if (v.isJson(value)) {
