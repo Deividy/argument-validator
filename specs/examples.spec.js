@@ -8,7 +8,13 @@ function Rabbit (name, age) {
     ArgumentValidator.string(name, 'name');
     ArgumentValidator.number(age, 'age');
     this.name = name;
+    this.childs = [ ];
 }
+Rabbit.prototype.newChild = function (rabbit) {
+    ArgumentValidator.instanceOf(Rabbit, rabbit, 'rabbit');
+    this.childs.push(rabbit);
+};
+
 function Hole (rabbit) {
     this.rabbit = rabbit;
 }
@@ -33,5 +39,14 @@ describe("Examples", function () {
             var h = new Hole(new Rabbit('Test', 10));
             h.firstRabbitLetter();
         }).should.not.throw();
+    });
+
+    it('rabbit hole with child', function () {
+        (function () {
+            var rabbit = new Rabbit('Test', 10);
+            rabbit.newChild();
+        }).should.throw();
+
+        new Rabbit("Test", 10).newChild(new Rabbit("Test", 1));
     });
 });
