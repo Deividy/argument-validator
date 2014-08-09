@@ -7,15 +7,16 @@ Simple JavaScript Argument Validator without any dependencies.
 Our main principle is ***Fail First***, we don't want to send wrong values through all our code.
 Although, we don't want to throw an exception to everything we get from user input, but we do want to validate(and throw first) when we receive something unexpected in our core functions.
 
-***Sugar*** - We expose the `is*` and `has*` functions, we need they internally and it can be handy.
+***Sugar*** - We expose the `is*` and `has*` functions, it can be handy.
 
-***Note***  - By default all validations check also for null/empty, e.g `ArgumentValidator.array([])` will throw because is an empty array, to  validate only type use `type()` or the `*OrEmpty()` functions, e.g `ArgumentValidator.arrayOrEmpty([])`
+***Note***  - By default all validations check also for null/empty, e.g. `ArgumentValidator.array([])` will throw because is an empty array, to  validate only type use `type()` or the `*OrEmpty()` functions, e.g. `ArgumentValidator.arrayOrEmpty([])`
 
+---
 ## About
 
 We all know that JavaScript has no type checking, also we know that's not a good practice to `throw` errors with Node.JS, because it's async and we don't want to take down our app, do some global handler or something fancy. but...
 
-Inside our core, when we receive an argument the most part of time we expect that argument is in such type, so we can perform methods of that type (`substring`/`slice`/`toFixed`...) and if it's not in correct type it will throw an ugly `TypeError` exception and if it's in a nested function will be a rabbit hole try to figure out where that value came first.
+Inside our core, when we receive an argument the most part of time we expect that argument is in such type, so we can perform methods of that type (`substring`/`slice`/`toFixed`...) and if it's not in correct type it will throw an ugly `TypeError` exception, if it's in a nested function will be a rabbit hole try to figure out where that value come at first.
 
 A lot of languages has this kind of checking internally, but we're talking about ***JavaScript*** here. :)
 
@@ -61,7 +62,7 @@ We know that our rabbit inside a `Hole` class has an undefined name, and the met
 
 How it get there without a rabbit name? Did we pass an undefined name in the constructor or it lost the name property a long the way? Where is the declaration of `new Hole()` and `new Rabbit()` ? 
 
-Our stack trace doesn't give us that, so the way to figure  would be something like put a breakpoint in `firstRabbitLetter` and dig it.
+Our stack trace doesn't give us that, so the way to figure out would be something like put a breakpoint in `firstRabbitLetter` and dig it.
 
 Wouldn't be better if we throw first at the `new Rabbit()`, so we don't need to go that deep?
 
@@ -80,7 +81,7 @@ function Hole(rabbit) {
 /* .... */
 ```
 
-Lets check our stack trace:
+Stack trace:
 ```
 argument-validator/argument-validator.js:6
         throw new Error(msg);
@@ -103,7 +104,7 @@ In that case it's not making a huge difference, but at least we have sure that o
 
 ***Bonus*** - Using this practice let your code more readable, everyone who reads the code will know exactly what arguments it expects.
 
-## Install
+## Also available in
 
 npm:
 ```
@@ -115,11 +116,7 @@ bower:
 bower install argument-validator
 ```
 
-html:
-```
-<script type='text/javascrpt' src='argument-validator.min.js'></script>`
-```
-
+---
 ## Methods
 - [notNull / isNotNull](#notnull--isnotnull)
 - [instanceOf / isInstanceOf](#instanceof--isinstanceof)
@@ -142,6 +139,8 @@ html:
 - [keysWithNumber / hasKeysWithNumber](#keyswithnumber--haskeyswithnumber)
 - [keysWithString / hasKeysWithString](#keyswithstring--haskeyswithstring)
 - [keysWithObject / hasKeysWithObject](#keyswithobject--haskeyswithobject)
+
+---
 
 ### notNull / isNotNull
 ```javascript
@@ -311,7 +310,7 @@ ArgumentValidator.keysWithObject(value, [ keys ], optionalArgumentName);
 ArgumentValidator.hasKysWithObject(value, [ keys ]); 
 ```
 
-
+---
 ## More?
 Please check `specs/` to more examples or read the full code.
 
