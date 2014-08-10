@@ -20,6 +20,7 @@
         "karma-script-launcher": "",
         "karma-chrome-launcher": "",
         "karma-firefox-launcher": "",
+        "karma-phantomjs-launcher": "",
         "karma": "",
         "grunt": "",
         "grunt-contrib-uglify": "",
