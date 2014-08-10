@@ -1,4 +1,11 @@
 (function () {
+    /* 
+     * We only define the is/has* functions and use the
+     * demand() function to build the demands, also the 
+     * getDemandMethodNameByValidatorKey() (yeh, I know it's an ugly name :()
+     * build the demand method based in the .is/has methods
+     */
+
     var v = { };
 
     if (typeof module !== 'undefined' && module.exports) {
@@ -111,20 +118,6 @@
         return /\S/.test(value);
     };
 
-    v.isStringWithMaxLength = function(maxLength, value) {
-        if (!v.isString(value)) {
-            return false;
-        }
-        return value.length <= maxLength;
-    };
-
-    v.isStringWithMinLength = function(minLength, value) {
-        if (!v.isString(value)) {
-            return false;
-        }
-        return value.length >= minLength;
-    };
-    
     v.isNumber = function (value) {
         if (!v.isType('Number', value)) {
             return false;

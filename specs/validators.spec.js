@@ -81,20 +81,6 @@ describe("Validators", function () {
         V.isString(new String('   ')).should.be.false;
     });
 
-    it('.isStringWithMaxLength()', function () {
-        V.isStringWithMaxLength(10, '1234567890').should.be.true;
-        V.isStringWithMaxLength(10, '12345678901').should.be.false;
-        V.isStringWithMaxLength(10, 1234567).should.be.false;
-        V.isStringWithMaxLength(10, {}).should.be.false;
-    });
-
-    it('.isStringWithMinLength()', function () {
-        V.isStringWithMinLength(10, '123456789').should.be.false;
-        V.isStringWithMinLength(10, '1234567890').should.be.true;
-        V.isStringWithMinLength(10, 1234567).should.be.false;
-        V.isStringWithMinLength(10, {}).should.be.false;
-    });
-
     it('.isNumber()', function () {
         V.isNumber(5).should.be.true;
         V.isNumber(12.5).should.be.true;

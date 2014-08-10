@@ -1,10 +1,10 @@
 Argument Validator [![Build Status](https://travis-ci.org/Deividy/argument-validator.png?branch=master)](https://travis-ci.org/Deividy/argument-validator)
 ===============
 
-Simple JavaScript Argument Validator without any dependencies.
+Simple JavaScript Argument Validator.
 
 ## Fail First
-Our main principle is ***Fail First***, we don't want to send wrong values through all our code.
+Argument Validator main principle is ***Fail First***, we don't want to send wrong values through all our code.
 Although, we don't want to throw an exception to everything we get from user input, but we do want to validate(and throw first) when we receive something unexpected in our core functions.
 
 ***Sugar*** - We expose the `is*` and `has*` functions, it can be handy.
@@ -124,8 +124,6 @@ bower install argument-validator
 - [boolean / isBoolean](#boolean--isboolean)
 - [stringOrEmpty / isStringOrEmpty](#stringorempty--isstringorempty)
 - [string / isString](#string--isstring)
-- [stringWithMaxLength / isStringWithMaxLength](#stringwithmaxlength--isstringwithmaxlength)
-- [stringWithMinLength / isStringWithMinLength](#stringwithminlength--isstringwithmeenlength)
 - [number / isNumber](#number--isnumber)
 - [arrayOrEmpty / isArrayOrEmpty](#arrayorempty--isarrayorempty)
 - [array / isArray](#array--isarray)
@@ -195,18 +193,6 @@ ArgumentValidator.isType('Date', new Date()).should.be.true;
 ArgumentValidator.isType('Date', '[object Date]').should.be.false;
 ArgumentValidator.isType('Number', 123).should.be.true;
 ArgumentValidator.isType('Number', '123').should.be.false;
-```
-
-### stringWithMaxLength / isStringWithMaxLength
-```javascript
-ArgumentValidator.stringWithMaxLength(maxLength, value, optionalArgumentName);
-ArgumentValidator.isStringWithMaxLength(maxLength, value); 
-```
-
-### stringWithMinLength / isStringWithMinLength
-```javascript
-ArgumentValidator.stringWithMinLength(minLength, value, optionalArgumentName);
-ArgumentValidator.isStringWithMinLength(minLength, value);
 ```
 
 ### number / isNumber

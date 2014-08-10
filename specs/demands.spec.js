@@ -101,26 +101,6 @@ describe("Demands", function () {
         (function () { V.string([]); }).should.throw();
     });     
 
-    it('.stringWithMaxLength()', function () {
-        (function () {
-            V.stringWithMaxLength(10, '1234567890');
-        }).should.not.throw();
-
-        (function () { V.stringWithMaxLength(10, '12345678901'); }).should.throw();
-        (function () { V.stringWithMaxLength(10, 1234567); }).should.throw();
-        (function () { V.stringWithMaxLength(10, {}); }).should.throw();
-    });
-
-    it('.stringWithMinLength()', function () {
-        (function () {
-            V.stringWithMinLength(10, '1234567890');
-        }).should.not.throw();
-
-        (function () { V.stringWithMinLength(10, '12345678'); }).should.throw();
-        (function () { V.stringWithMinLength(10, 1234567); }).should.throw();
-        (function () { V.stringWithMinLength(10, {}); }).should.throw();
-    });
-
     it('.number()', function () {
         (function () {
             V.number(5);
