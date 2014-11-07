@@ -34,6 +34,10 @@
                 msg += "\nArgument Name: " + name;
             }
 
+            if (v.isArray(arguments[1])) {
+                msg += "\nKeys: " + arguments[1].join(", ");
+            }
+
             throw new Error(msg);
         }
     };
