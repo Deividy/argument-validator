@@ -60,7 +60,7 @@ TypeError: Cannot call method 'substring' of undefined
 
 We know that our rabbit inside a `Hole` class has an undefined name, and the method `firstRabbitLetter` is trying to get it's first letter, but...
 
-How it get there without a rabbit name? Did we pass an undefined name in the constructor or it lost the name property a long the way? Where is the declaration of `new Hole()` and `new Rabbit()` ? 
+How it get there without a rabbit name? Did we pass an undefined name in the constructor or it lost the name property a long the way? Where is the declaration of `new Hole()` and `new Rabbit()` ?
 
 Our stack trace doesn't give us that, so the way to figure out would be something like put a breakpoint in `firstRabbitLetter` and dig it.
 
@@ -131,6 +131,7 @@ bower install argument-validator
 - [arrayOfObjects / isArrayOfObjects](#arrayofobjects--isarrayofobjects)
 - [objectOrEmpty / isObjectOrEmpty](#objectorempty--isobjectorempty)
 - [object / isObject](#object--isobject)
+- [function / isFunction](#function--isfunction)
 - [json / isJson](#json--isjson)
 - [jsonString / isJsonString](#jsonstring--isjsonstring)
 - [keys / hasKeys](#keys--haskeys)
@@ -143,7 +144,7 @@ bower install argument-validator
 ### notNull / isNotNull
 ```javascript
 ArgumentValidator.notNull(value, optionalArgumentName);
-ArgumentValidator.isNotNull(value); 
+ArgumentValidator.isNotNull(value);
 ```
 
 ### instanceOf / isInstanceOf
@@ -161,7 +162,7 @@ ArgumentValidator.isType(type, value);
 ### boolean / isBoolean
 ```javascript
 ArgumentValidator.boolean(value, optionalArgumentName);
-ArgumentValidator.isBoolean(value); 
+ArgumentValidator.isBoolean(value);
 ```
 
 ### stringOrEmpty / isStringOrEmpty
@@ -185,7 +186,7 @@ Validate agains type, simple call to `Object.prototype.toString` and check `if "
 
 (function () {
     ArgumentValidator.type('Date', '223');
-}).should.throw();      
+}).should.throw();
 ```
 
 ```javascript
@@ -197,8 +198,8 @@ ArgumentValidator.isType('Number', '123').should.be.false;
 
 ### number / isNumber
 ```javascript
-ArgumentValidator.number(value, optionalArgumentName); 
-ArgumentValidator.isNumber(value); 
+ArgumentValidator.number(value, optionalArgumentName);
+ArgumentValidator.isNumber(value);
 ```
 
 Validate against type `Number`, against `isInfinite` and `isNaN`.
@@ -212,7 +213,7 @@ Validate against type `Number`, against `isInfinite` and `isNaN`.
 
 (function () { ArgumentValidator.number('5'); }).should.throw();
 (function () { ArgumentValidator.number(1/0); }).should.throw();
-(function () { ArgumentValidator.number(1/'A'); }).should.throw();  
+(function () { ArgumentValidator.number(1/'A'); }).should.throw();
 ```
 
 ```javascript
@@ -226,74 +227,80 @@ ArgumentValidator.isNumber(1/0).should.be.false;
 
 ### arrayOrEmpty / isArrayOrEmpty
 ```javascript
-ArgumentValidator.arrayOrEmpty(value, optionalArgumentName); 
-ArgumentValidator.isArrayOrEmpty(value); 
+ArgumentValidator.arrayOrEmpty(value, optionalArgumentName);
+ArgumentValidator.isArrayOrEmpty(value);
 ```
 
 ### array / isArray
 ```javascript
-ArgumentValidator.array(value, optionalArgumentName); 
-ArgumentValidator.isArray(value); 
+ArgumentValidator.array(value, optionalArgumentName);
+ArgumentValidator.isArray(value);
 ```
 
 ### arrayOfNumbers / isArrayOfNumbers
 ```javascript
-ArgumentValidator.arrayOfNumbers(value, optionalArgumentName); 
-ArgumentValidator.isArrayOfNumbers(value); 
+ArgumentValidator.arrayOfNumbers(value, optionalArgumentName);
+ArgumentValidator.isArrayOfNumbers(value);
 ```
 
 ### arrayOfObjects / isArrayOfObjects
 ```javascript
-ArgumentValidator.arrayOfObjects(value, optionalArgumentName); 
-ArgumentValidator.isArrayOfObjects(value); 
+ArgumentValidator.arrayOfObjects(value, optionalArgumentName);
+ArgumentValidator.isArrayOfObjects(value);
 ```
 
 ### objectOrEmpty / isObjectOrEmpty
 ```javascript
-ArgumentValidator.objectOrEmpty(value, optionalArgumentName); 
-ArgumentValidator.isObjectOrEmpty(value); 
+ArgumentValidator.objectOrEmpty(value, optionalArgumentName);
+ArgumentValidator.isObjectOrEmpty(value);
 ```
 
 ### object / isObject
 ```javascript
-ArgumentValidator.object(value, optionalArgumentName); 
-ArgumentValidator.isObject(value); 
+ArgumentValidator.object(value, optionalArgumentName);
+ArgumentValidator.isObject(value);
+```
+
+### function / isFunction
+```javascript
+ArgumentValidator.function(value, optionalArgumentName);
+ArgumentValidator.isFunction(value);
 ```
 
 ### json / isJson
 ```javascript
-ArgumentValidator.json(value, optionalArgumentName); 
-ArgumentValidator.isJson(value); 
+ArgumentValidator.json(value, optionalArgumentName);
+ArgumentValidator.isJson(value);
 ```
 
 ### jsonString / isJsonString
 ```javascript
-ArgumentValidator.jsonString(value, optionalArgumentName); 
-ArgumentValidator.isJsonString(value); 
+ArgumentValidator.jsonString(value, optionalArgumentName);
+ArgumentValidator.isJsonString(value);
 ```
 
 ### keys / hasKeys
 ```javascript
-ArgumentValidator.keys(value, [ keys ], optionalArgumentName); 
-ArgumentValidator.hasKeys(value, [ keys ]); 
+ArgumentValidator.keys(value, [ keys ], optionalArgumentName);
+ArgumentValidator.hasKeys(value, [ keys ]);
 ```
 
 ### keysWithNumber / hasKeysWithNumber
 ```javascript
-ArgumentValidator.keysWithNumber(value, [ keys ], optionalArgumentName); 
-ArgumentValidator.hasKeysWithNumber(value, [ keys ]); 
+ArgumentValidator.keysWithNumber(value, [ keys ], optionalArgumentName);
+ArgumentValidator.hasKeysWithNumber(value, [ keys ]);
 ```
 
 ### keysWithString / hasKeysWithString
 ```javascript
-ArgumentValidator.keysWithString(value, [ keys ], optionalArgumentName); 
-ArgumentValidator.hasKeysWithString(value, [ keys ]); 
+ArgumentValidator.keysWithString(value, [ keys ], optionalArgumentName);
+ArgumentValidator.hasKeysWithString(value, [ keys ]);
 ```
 
 ### keysWithObject / hasKeysWithObject
 ```javascript
-ArgumentValidator.keysWithObject(value, [ keys ], optionalArgumentName); 
-ArgumentValidator.hasKysWithObject(value, [ keys ]); 
+ArgumentValidator.keysWithObject(value, [ keys ], optionalArgumentName);
+ArgumentValidator.hasKysWithObject(value, [ keys ]);
 ```
 
 ---
