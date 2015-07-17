@@ -166,14 +166,14 @@ describe("Validators", function () {
         V.hasKeysWithNumber({ abc: null }, [ 'abc' ]).should.be.false;
         V.hasKeysWithNumber({ abc: 'abc' }, [ 'abc' ]).should.be.false;
         V.hasKeysWithNumber({ abc: 1 }, [ 'abc' ]).should.be.true;
-    });     
+    });
 
     it('.hasKeysWithString()', function () {
         V.hasKeysWithString({}, [ 'abc' ]).should.be.false;
         V.hasKeysWithString({ abc: null }, [ 'abc' ]).should.be.false;
         V.hasKeysWithString({ abc: 'abc' }, [ 'abc' ]).should.be.true;
         V.hasKeysWithString({ abc: 1 }, [ 'abc' ]).should.be.false;
-    });     
+    });
 
     it('.hasKeysWithObject()', function () {
         V.hasKeysWithObject({}, [ 'abc' ]).should.be.false;
@@ -182,6 +182,20 @@ describe("Validators", function () {
         V.hasKeysWithObject({ abc: {} }, [ 'abc' ]).should.be.false;
         V.hasKeysWithObject({ abc: { test: 1 } }, [ 'abc' ]).should.be.true;
         V.hasKeysWithObject({ abc: 1 }, [ 'abc' ]).should.be.false;
-    });     
+    });
+
+
+    it('.isFunction', function () {
+        V.isFunction(function(){}).should.be.true;
+        V.isFunction(Date).should.be.true;
+        V.isFunction(Function).should.be.true;
+
+        V.isFunction(124).should.be.false;
+        V.isFunction({}).should.be.false;
+        V.isFunction((function(){ })()).should.be.false;
+        V.isFunction((function(){ return {}; })()).should.be.false;
+
+        V.isFunction((function(){ return function() {}; })()).should.be.true;
+    });
 
 });

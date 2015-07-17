@@ -1,7 +1,7 @@
 (function () {
-    /* 
+    /*
      * We only define the is/has* functions and use the
-     * demand() function to build the demands, also the 
+     * demand() function to build the demands, also the
      * getDemandMethodNameByValidatorKey() (yeh, I know it's an ugly name :()
      * build the demand method based in the .is/has methods
      */
@@ -64,7 +64,7 @@
     var hasKeysWith = function (validator, obj, keys) {
         if (!v.isObjectOrEmpty(obj)) {
             return false;
-        } 
+        }
 
         var length = keys.length;
         for (var i = 0; i < length; i++) {
@@ -157,7 +157,7 @@
     v.isObject = function (obj) {
         if (!v.isObjectOrEmpty(obj)) {
             return false;
-        } 
+        }
 
         for (var key in obj) {
             if (Object.prototype.hasOwnProperty.call(obj, key)) {
@@ -197,20 +197,24 @@
     };
 
     v.hasKeys = function (obj, keys) {
-        return hasKeysWith(v.isNotNull, obj, keys); 
+        return hasKeysWith(v.isNotNull, obj, keys);
     };
 
     v.hasKeysWithNumber = function (obj, keys) {
-        return hasKeysWith(v.isNumber, obj, keys); 
+        return hasKeysWith(v.isNumber, obj, keys);
     };
 
     v.hasKeysWithString = function (obj, keys) {
-        return hasKeysWith(v.isString, obj, keys); 
+        return hasKeysWith(v.isString, obj, keys);
     };
 
     v.hasKeysWithObject = function (obj, keys) {
         return hasKeysWith(v.isObject, obj, keys);
     };
+
+    v.isFunction = function (value) {
+        return v.isInstanceOf(Function, value);
+    }
 
     // build demand functions
     for (var key in v) {

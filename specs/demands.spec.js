@@ -17,11 +17,11 @@ describe("Demands", function () {
             V.notNull(1)
             V.notNull([ 1 ])
             V.notNull({ test: 1 })
-        }).should.not.throw();   
+        }).should.not.throw();
 
         (function () { V.notNull(null); }).should.throw();
         (function () { V.notNull(undefined); }).should.throw();
-    });     
+    });
 
     it('.instaceOf()', function () {
         (function () {
@@ -71,7 +71,7 @@ describe("Demands", function () {
         (function () { V.boolean(''); }).should.throw();
         (function () { V.boolean([]); }).should.throw();
         (function () { V.boolean({}); }).should.throw();
-    });  
+    });
 
     it('.stringOrEmpty()', function () {
         (function () {
@@ -84,7 +84,7 @@ describe("Demands", function () {
         (function () { V.stringOrEmpty(1); }).should.throw();
         (function () { V.stringOrEmpty({}); }).should.throw();
         (function () { V.stringOrEmpty([]); }).should.throw();
-    });     
+    });
 
     it('.string()', function () {
         (function () {
@@ -99,7 +99,7 @@ describe("Demands", function () {
         (function () { V.string(1); }).should.throw();
         (function () { V.string({}); }).should.throw();
         (function () { V.string([]); }).should.throw();
-    });     
+    });
 
     it('.number()', function () {
         (function () {
@@ -114,7 +114,7 @@ describe("Demands", function () {
         (function () { V.number(1/'A'); }).should.throw();
     });
 
-    
+
     it('.arrayOrEmpty()', function () {
         (function () {
             V.arrayOrEmpty([]);
@@ -160,7 +160,7 @@ describe("Demands", function () {
         (function () { V.arrayOfObjects([ 1, null ]); }).should.throw();
         (function () { V.arrayOfObjects([ {} ]); }).should.throw();
         (function () { V.arrayOfObjects([ { test: 1 }, { } ]); }).should.throw();
-    });      
+    });
 
 
     it('.objectOrEmpty()', function () {
@@ -174,7 +174,7 @@ describe("Demands", function () {
     });
 
     it('.object()', function () {
-        (function () { 
+        (function () {
             V.object({ test: 1 });
         }).should.not.throw();
 
@@ -218,7 +218,7 @@ describe("Demands", function () {
         (function () { V.keysWithNumber({}, [ 'abc' ]); }).should.throw();
         (function () { V.keysWithNumber({ abc: null }, [ 'abc' ]); }).should.throw();
         (function () { V.keysWithNumber({ abc: 'abc' }, [ 'abc' ]); }).should.throw();
-    });     
+    });
 
     it('.keysWithString()', function () {
         (function () {
@@ -228,7 +228,7 @@ describe("Demands", function () {
         (function () { V.keysWithString({}, [ 'abc' ]); }).should.throw();
         (function () { V.keysWithString({ abc: null }, [ 'abc' ]); }).should.throw();
         (function () { V.keysWithString({ abc: 1 }, [ 'abc' ]); }).should.throw();
-    });     
+    });
 
     it('.keysWithObject()', function () {
         (function () {
@@ -240,5 +240,17 @@ describe("Demands", function () {
         (function () { V.keysWithObject({ abc: 'abc' }, [ 'abc' ]); }).should.throw();
         (function () { V.keysWithObject({ abc: {} }, [ 'abc' ]); }).should.throw();
         (function () { V.keysWithObject({ abc: 1 }, [ 'abc' ]); }).should.throw();
-    });      
+    });
+
+    it('.function()', function () {
+        (function () {
+            V.function(function() {});
+            V.function((function() { return function() { } })());
+        }).should.not.throw();
+
+        (function () { V.function(1); }).should.throw();
+        (function () { V.function(null); }).should.throw();
+        (function () { V.function(undefined); }).should.throw();
+        (function () { V.function((function() { })()); }).should.throw();
+    });
 });
