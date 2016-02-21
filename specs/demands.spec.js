@@ -228,6 +228,8 @@ describe("Demands", function () {
         (function () { V.keysWithString({}, [ 'abc' ]); }).should.throw();
         (function () { V.keysWithString({ abc: null }, [ 'abc' ]); }).should.throw();
         (function () { V.keysWithString({ abc: 1 }, [ 'abc' ]); }).should.throw();
+
+        (function () { V.keysWithString({ abc: '' }, [ 'abc' ]); }).should.throw();
     });
 
     it('.keysWithObject()', function () {
@@ -252,6 +254,30 @@ describe("Demands", function () {
         (function () { V.function(null); }).should.throw();
         (function () { V.function(undefined); }).should.throw();
         (function () { V.function((function() { })()); }).should.throw();
+    });
+
+    it('.keysWithStringOrEmpty()', function () {
+        (function () {
+            V.keysWithStringOrEmpty({ abc: 'abc' }, [ 'abc' ]);
+        }).should.not.throw();
+
+        (function () { V.keysWithStringOrEmpty({}, [ 'abc' ]); }).should.throw();
+        (function () { V.keysWithStringOrEmpty({ abc: null }, [ 'abc' ]); }).should.throw();
+        (function () { V.keysWithStringOrEmpty({ abc: 1 }, [ 'abc' ]); }).should.throw();
+
+        (function () { V.keysWithStringOrEmpty({ abc: '' }, [ 'abc' ]); }).should.not.throw();
+    });
+
+    it('.keysWithObjectOrEmpty()', function () {
+        (function () {
+            V.keysWithObjectOrEmpty({ abc: { test: 1 } }, [ 'abc' ]);
+        }).should.not.throw();
+
+        (function () { V.keysWithObjectOrEmpty({}, [ 'abc' ]); }).should.throw();
+        (function () { V.keysWithObjectOrEmpty({ abc: null }, [ 'abc' ]); }).should.throw();
+        (function () { V.keysWithObjectOrEmpty({ abc: 'abc' }, [ 'abc' ]); }).should.throw();
+        (function () { V.keysWithObjectOrEmpty({ abc: {} }, [ 'abc' ]); }).should.not.throw();
+        (function () { V.keysWithObjectOrEmpty({ abc: 1 }, [ 'abc' ]); }).should.throw();
     });
 
     // keys aliases
@@ -286,5 +312,29 @@ describe("Demands", function () {
         (function () { V.objectKeys({ abc: 'abc' }, [ 'abc' ]); }).should.throw();
         (function () { V.objectKeys({ abc: {} }, [ 'abc' ]); }).should.throw();
         (function () { V.objectKeys({ abc: 1 }, [ 'abc' ]); }).should.throw();
+    });
+
+    it('.stringOrEmptyKeys()', function () {
+        (function () {
+            V.stringOrEmptyKeys({ abc: 'abc' }, [ 'abc' ]);
+        }).should.not.throw();
+
+        (function () { V.stringOrEmptyKeys({}, [ 'abc' ]); }).should.throw();
+        (function () { V.stringOrEmptyKeys({ abc: null }, [ 'abc' ]); }).should.throw();
+        (function () { V.stringOrEmptyKeys({ abc: 1 }, [ 'abc' ]); }).should.throw();
+
+        (function () { V.stringOrEmptyKeys({ abc: '' }, [ 'abc' ]); }).should.not.throw();
+    });
+
+    it('.objectOrEmptyKeys()', function () {
+        (function () {
+            V.objectOrEmptyKeys({ abc: { test: 1 } }, [ 'abc' ]);
+        }).should.not.throw();
+
+        (function () { V.objectOrEmptyKeys({}, [ 'abc' ]); }).should.throw();
+        (function () { V.objectOrEmptyKeys({ abc: null }, [ 'abc' ]); }).should.throw();
+        (function () { V.objectOrEmptyKeys({ abc: 'abc' }, [ 'abc' ]); }).should.throw();
+        (function () { V.objectOrEmptyKeys({ abc: {} }, [ 'abc' ]); }).should.not.throw();
+        (function () { V.objectOrEmptyKeys({ abc: 1 }, [ 'abc' ]); }).should.throw();
     });
 });

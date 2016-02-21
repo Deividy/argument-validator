@@ -212,10 +212,6 @@
         return hasKeysWith(v.isObject, obj, keys);
     };
 
-    v.hasKeysWithNumberOrEmpty = v.hasNumberOrEmptyKeys = function (obj, keys) {
-        return hasKeysWith(v.isNumberOrEmpty, obj, keys);
-    };
-
     v.hasKeysWithStringOrEmpty = v.hasStringOrEmptyKeys = function (obj, keys) {
         return hasKeysWith(v.isStringOrEmpty, obj, keys);
     };

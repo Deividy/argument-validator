@@ -3,7 +3,6 @@ Argument Validator
 
 Simple JavaScript Argument Validator.
 
-
 [![Build Status](https://travis-ci.org/Deividy/argument-validator.png?branch=master)](https://travis-ci.org/Deividy/argument-validator)
 [![npm](https://img.shields.io/npm/v/npm.svg)](https://github.com/Deividy/argument-validator)
 [![npm](https://img.shields.io/npm/l/express.svg)](https://github.com/Deividy/argument-validator)
@@ -149,8 +148,15 @@ wget https://raw.githubusercontent.com/Deividy/argument-validator/master/argumen
 - [jsonString / isJsonString](#jsonstring--isjsonstring)
 - [keys / hasKeys](#keys--haskeys)
 - [keysWithNumber / hasKeysWithNumber](#keyswithnumber--haskeyswithnumber)
+- [numberKeys / hasNumberKeys](#numberkeys--hasnumberkeys)
 - [keysWithString / hasKeysWithString](#keyswithstring--haskeyswithstring)
+- [stringKeys / hasStringKeys](#stringkeys--hasstringkeys)
 - [keysWithObject / hasKeysWithObject](#keyswithobject--haskeyswithobject)
+- [objectKeys / hasObjectKeys](#objectkeys--hasobjectkeys)
+- [keysWithStringOrEmpty / hasKeysWithStringOrEmpty](#keyswithstringorempty--haskeyswithstringorempty)
+- [stringOrEmptyKeys / hasStringOrEmptyKeys](#stringoremptykeys--hasstringoremptykeys)
+- [keysWithObjectOrEmpty / hasKeysWithObjectOrEmpty](#keyswithobjectorempty--haskeyswithobjectorempty)
+- [objectOrEmptyKeys / hasObjectOrEmptyKeys](#objectoremptykeys--hasobjectoremptykeys)
 
 ---
 
@@ -304,16 +310,60 @@ ArgumentValidator.keysWithNumber(value, [ keys ], optionalArgumentName);
 ArgumentValidator.hasKeysWithNumber(value, [ keys ]);
 ```
 
+### numberKeys / hasNumberKeys
+```javascript
+ArgumentValidator.numberKeys(value, [ keys ], optionalArgumentName);
+ArgumentValidator.hasNumberKeys(value, [ keys ]);
+```
+
 ### keysWithString / hasKeysWithString
 ```javascript
 ArgumentValidator.keysWithString(value, [ keys ], optionalArgumentName);
 ArgumentValidator.hasKeysWithString(value, [ keys ]);
 ```
 
+### stringKeys / hasStringKeys
+```javascript
+ArgumentValidator.stringKeys(value, [ keys ], optionalArgumentName);
+ArgumentValidator.hasStringKeys(value, [ keys ]);
+```
+
 ### keysWithObject / hasKeysWithObject
 ```javascript
 ArgumentValidator.keysWithObject(value, [ keys ], optionalArgumentName);
-ArgumentValidator.hasKysWithObject(value, [ keys ]);
+ArgumentValidator.hasKeysWithObject(value, [ keys ]);
+```
+
+### objectKeys / hasObjectKeys
+```javascript
+ArgumentValidator.objectKeys(value, [ keys ], optionalArgumentName);
+ArgumentValidator.hasObjectKeys(value, [ keys ]);
+```
+
+
+
+### keysWithStringOrEmpty / hasKeysWithStringOrEmpty
+```javascript
+ArgumentValidator.keysWithStringOrEmpty(value, [ keys ], optionalArgumentName);
+ArgumentValidator.hasKeysWithStringOrEmpty(value, [ keys ]);
+```
+
+### stringOrEmptyKeys / hasStringOrEmptyKeys
+```javascript
+ArgumentValidator.stringOrEmptyKeys(value, [ keys ], optionalArgumentName);
+ArgumentValidator.hasStringOrEmptyKeys(value, [ keys ]);
+```
+
+### keysWithObjectOrEmpty / hasKeysWithObjectOrEmpty
+```javascript
+ArgumentValidator.keysWithObjectOrEmpty(value, [ keys ], optionalArgumentName);
+ArgumentValidator.hasKeysWithObjectOrEmpty(value, [ keys ]);
+```
+
+### objectOrEmptyKeys / hasObjectOrEmptyKeys
+```javascript
+ArgumentValidator.objectOrEmptyKeys(value, [ keys ], optionalArgumentName);
+ArgumentValidator.hasObjectOrEmptyKeys(value, [ keys ]);
 ```
 
 ---
