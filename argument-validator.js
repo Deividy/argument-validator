@@ -62,7 +62,7 @@
     };
 
     var hasKeysWith = function (validator, obj, keys) {
-        if (!v.isObjectOrEmpty(obj)) {
+        if (!v.isObjectOrEmpty(obj) || !v.isArrayOrEmpty(keys)) {
             return false;
         }
 
@@ -200,21 +200,33 @@
         return hasKeysWith(v.isNotNull, obj, keys);
     };
 
-    v.hasKeysWithNumber = function (obj, keys) {
+    v.hasKeysWithNumber = v.hasNumberKeys = function (obj, keys) {
         return hasKeysWith(v.isNumber, obj, keys);
     };
 
-    v.hasKeysWithString = function (obj, keys) {
+    v.hasKeysWithString = v.hasStringKeys = function (obj, keys) {
         return hasKeysWith(v.isString, obj, keys);
     };
 
-    v.hasKeysWithObject = function (obj, keys) {
+    v.hasKeysWithObject = v.hasObjectKeys = function (obj, keys) {
         return hasKeysWith(v.isObject, obj, keys);
+    };
+
+    v.hasKeysWithNumberOrEmpty = v.hasNumberOrEmptyKeys = function (obj, keys) {
+        return hasKeysWith(v.isNumberOrEmpty, obj, keys);
+    };
+
+    v.hasKeysWithStringOrEmpty = v.hasStringOrEmptyKeys = function (obj, keys) {
+        return hasKeysWith(v.isStringOrEmpty, obj, keys);
+    };
+
+    v.hasKeysWithObjectOrEmpty = v.hasObjectOrEmptyKeys = function (obj, keys) {
+        return hasKeysWith(v.isObjectOrEmpty, obj, keys);
     };
 
     v.isFunction = function (value) {
         return v.isInstanceOf(Function, value);
-    }
+    };
 
     // build demand functions
     for (var key in v) {
