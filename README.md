@@ -1,7 +1,15 @@
-Argument Validator [![Build Status](https://travis-ci.org/Deividy/argument-validator.png?branch=master)](https://travis-ci.org/Deividy/argument-validator)
+Argument Validator
 ===============
 
 Simple JavaScript Argument Validator.
+
+
+[![Build Status](https://travis-ci.org/Deividy/argument-validator.png?branch=master)](https://travis-ci.org/Deividy/argument-validator)
+[![npm](https://img.shields.io/npm/v/npm.svg)](https://github.com/Deividy/argument-validator)
+[![npm](https://img.shields.io/npm/l/express.svg)](https://github.com/Deividy/argument-validator)
+
+[![NPM](https://nodei.co/npm/argument-validator.png?mini=true)](https://nodei.co/npm/argument-validator)
+
 
 ## Fail First
 Argument Validator main principle is ***Fail First***, we don't want to send wrong values through all our code.
@@ -104,7 +112,7 @@ In that case it's not making a huge difference, but at least we have sure that o
 
 ***Bonus*** - Using this practice let your code more readable, everyone who reads the code will know exactly what arguments it expects.
 
-## Also available in
+## Get it
 
 npm:
 ```
@@ -114,6 +122,11 @@ npm install argument-validator
 bower:
 ```
 bower install argument-validator
+```
+
+unix:
+```
+wget https://raw.githubusercontent.com/Deividy/argument-validator/master/argument-validator.js
 ```
 
 ---
@@ -305,7 +318,7 @@ ArgumentValidator.hasKysWithObject(value, [ keys ]);
 
 ---
 ## More?
-Please check `specs/` to more examples or read the full code.
+Please check `specs/` to more examples or read the full code, it's really small.
 
 If you have any suggestion, please don't be shy, [fork us](https://github.com/Deividy/argument-validator/fork) or [open an issue](https://github.com/Deividy/argument-validator/issues).
 
