@@ -253,4 +253,38 @@ describe("Demands", function () {
         (function () { V.function(undefined); }).should.throw();
         (function () { V.function((function() { })()); }).should.throw();
     });
+
+    // keys aliases
+
+    it('.numberKeys()', function () {
+        (function () {
+            V.numberKeys({ abc: 1 }, [ 'abc' ]);
+        }).should.not.throw();
+
+        (function () { V.numberKeys({}, [ 'abc' ]); }).should.throw();
+        (function () { V.numberKeys({ abc: null }, [ 'abc' ]); }).should.throw();
+        (function () { V.numberKeys({ abc: 'abc' }, [ 'abc' ]); }).should.throw();
+    });
+
+    it('.stringKeys()', function () {
+        (function () {
+            V.stringKeys({ abc: 'abc' }, [ 'abc' ]);
+        }).should.not.throw();
+
+        (function () { V.stringKeys({}, [ 'abc' ]); }).should.throw();
+        (function () { V.stringKeys({ abc: null }, [ 'abc' ]); }).should.throw();
+        (function () { V.stringKeys({ abc: 1 }, [ 'abc' ]); }).should.throw();
+    });
+
+    it('.objectKeys()', function () {
+        (function () {
+            V.objectKeys({ abc: { test: 1 } }, [ 'abc' ]);
+        }).should.not.throw();
+
+        (function () { V.objectKeys({}, [ 'abc' ]); }).should.throw();
+        (function () { V.objectKeys({ abc: null }, [ 'abc' ]); }).should.throw();
+        (function () { V.objectKeys({ abc: 'abc' }, [ 'abc' ]); }).should.throw();
+        (function () { V.objectKeys({ abc: {} }, [ 'abc' ]); }).should.throw();
+        (function () { V.objectKeys({ abc: 1 }, [ 'abc' ]); }).should.throw();
+    });
 });

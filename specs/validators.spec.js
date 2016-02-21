@@ -198,4 +198,29 @@ describe("Validators", function () {
         V.isFunction((function(){ return function() {}; })()).should.be.true;
     });
 
+    // has keys aliases
+
+    it('.hasNumberKeys()', function () {
+        V.hasNumberKeys({}, [ 'abc' ]).should.be.false;
+        V.hasNumberKeys({ abc: null }, [ 'abc' ]).should.be.false;
+        V.hasNumberKeys({ abc: 'abc' }, [ 'abc' ]).should.be.false;
+        V.hasNumberKeys({ abc: 1 }, [ 'abc' ]).should.be.true;
+    });
+
+    it('.hasStringKeys()', function () {
+        V.hasStringKeys({}, [ 'abc' ]).should.be.false;
+        V.hasStringKeys({ abc: null }, [ 'abc' ]).should.be.false;
+        V.hasStringKeys({ abc: 'abc' }, [ 'abc' ]).should.be.true;
+        V.hasStringKeys({ abc: 1 }, [ 'abc' ]).should.be.false;
+    });
+
+    it('.hasObjectKeys()', function () {
+        V.hasObjectKeys({}, [ 'abc' ]).should.be.false;
+        V.hasObjectKeys({ abc: null }, [ 'abc' ]).should.be.false;
+        V.hasObjectKeys({ abc: 'abc' }, [ 'abc' ]).should.be.false;
+        V.hasObjectKeys({ abc: {} }, [ 'abc' ]).should.be.false;
+        V.hasObjectKeys({ abc: { test: 1 } }, [ 'abc' ]).should.be.true;
+        V.hasObjectKeys({ abc: 1 }, [ 'abc' ]).should.be.false;
+    });
+
 });
