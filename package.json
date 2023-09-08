@@ -15,20 +15,10 @@
     },
     "devDependencies": {
         "mocha": "",
-        "should": "",
-        "karma-mocha": "",
-        "karma-script-launcher": "",
-        "karma-chrome-launcher": "",
-        "karma-firefox-launcher": "",
-        "karma-phantomjs-launcher": "",
-        "karma": "",
-        "grunt": "",
-        "grunt-contrib-uglify": "",
-        "grunt-karma": "",
-        "grunt-mocha-test": ""
+        "should": ""
     },
     "scripts": {
-        "test": "grunt test"
+        "test": "./node_modules/mocha/bin/mocha.js specs/*.spec.js --require should"
     },
     "licenses": [
         {
